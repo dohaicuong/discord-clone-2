@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react'
+import { useState } from 'react'
 
 import {
   ListItemText,
-  ListItemAvatar,
   Avatar, Collapse, Container, Switch
 } from '@material-ui/core'
 import { Inbox, ChevronRight, KeyboardArrowDown, Add, PersonAdd } from '@material-ui/icons'
@@ -15,7 +15,8 @@ import ListItem from './ListItem'
 import ListItemIcon from './ListItemIcon'
 import ListSubheader from './ListSubheader'
 import ListItemSecondaryAction from './ListItemSecondaryAction'
-import { useState } from 'react'
+import ListItemAvatar from './ListItemAvatar'
+import Badge from '../Badge'
 
 export default {
   title: 'Components/List',
@@ -97,9 +98,6 @@ export const BlobList: React.VFC<{}> = () => (
   </Container>
 )
 
-
-// icon, avatar spacing ???
-// size ???
 export const CollapsibleList: React.VFC<{}> = () => {
   const [open, setOpen] = useState(true)
 
@@ -114,6 +112,7 @@ export const CollapsibleList: React.VFC<{}> = () => {
         subheader={
           <ListSubheader
             component='div'
+            button
             style={{ display: 'flex', alignItems: 'center' }}
             onClick={() => setOpen(pre => !pre)}
           >
@@ -154,6 +153,63 @@ export const CollapsibleList: React.VFC<{}> = () => {
             <ListItemText primary='news' />
           </ListItem>
         </Collapse>
+      </List>
+    </Container>
+  )
+}
+
+export const UserList: React.VFC<{}> = () => {
+  return (
+    <Container maxWidth='xs'>
+      <List
+        style={{
+          color: '#72767d',
+          background: theme.palette.background.tertiary,
+          paddingRight: 8,
+        }}
+        subheader={
+          <ListSubheader
+            component='div'
+          >
+            ADMIN
+          </ListSubheader>
+        }
+      >
+        <ListItem button>
+          <ListItemAvatar>
+            <Badge
+              color='error'
+              badgeContent=''
+              size={20}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            >
+              <Avatar
+                style={{ width: 32, height: 32 }}
+                alt='Hatsune Miku'
+                src='https://pbs.twimg.com/profile_images/1326706754164383744/cHB7eqaI.jpg'
+              />
+            </Badge>
+          </ListItemAvatar>
+          <ListItemText primary='Hatsune Miku' />
+        </ListItem>
+
+        <ListItem button>
+          <ListItemAvatar>
+            <Badge
+              color='error'
+              badgeContent=''
+              size={20}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            >
+              <Avatar
+                style={{ width: 32, height: 32 }}
+                alt='Hatsune Miku'
+                src='https://pbs.twimg.com/profile_images/1326706754164383744/cHB7eqaI.jpg'
+              />
+            </Badge>
+          </ListItemAvatar>
+          <ListItemText primary='Hatsune Miku' />
+        </ListItem>
       </List>
     </Container>
   )

@@ -6,7 +6,8 @@ import {
 import { ComponentType } from 'react'
 
 type ListSubheaderProps = Omit<MuiListSubheaderProps, 'component'> & {
-  component: any
+  component?: any
+  button?: boolean
 }
 
 // @ts-ignore
@@ -18,7 +19,9 @@ const ListSubheader: ComponentType<ListSubheaderProps> = withStyles(theme => ({
     color: theme.palette.text.channelDefault,
     cursor: 'pointer',
     '&:hover': {
-      color: theme.palette.text.interactiveHover,
+      color: ({ button }: any) => button 
+        ? theme.palette.text.interactiveHover
+        : theme.palette.text.channelDefault,
     }
   },
 }))(MuiListSubheader)
