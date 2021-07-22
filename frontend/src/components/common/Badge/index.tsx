@@ -32,8 +32,6 @@ const Badge: ComponentType<BadgeProps> = withStyles(theme => ({
   color,
   ...props
 }: BadgeProps) => {
-  console.log(color)
-
   return (
     <MuiBadge
       color={color as any}

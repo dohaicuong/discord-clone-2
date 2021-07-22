@@ -7,6 +7,7 @@ import BlobButton from 'components/common/BlobButton'
 import { theme } from 'providers/theme'
 import NoDisturbIcon from './NoDisturbIcon'
 import IdleIcon from './IdleIcon'
+import OfflineIcon from './OfflineIcon'
 
 export default {
   title: 'Components/Badge',
@@ -81,6 +82,14 @@ export const Primary: React.VFC<{}> = () => (
 
         <Badge
           badgeContent={<IdleIcon />}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          style={{ margin: 4 }}
+        >
+          <BlobButton />
+        </Badge>
+
+        <Badge
+          badgeContent={<OfflineIcon />}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
           style={{ margin: 4 }}
         >

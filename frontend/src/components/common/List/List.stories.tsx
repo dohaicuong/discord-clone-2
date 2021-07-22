@@ -1,10 +1,7 @@
 import { Meta } from '@storybook/react'
 import { useState } from 'react'
 
-import {
-  ListItemText,
-  Avatar, Collapse, Container, Switch
-} from '@material-ui/core'
+import { Avatar, Collapse, Container, Switch } from '@material-ui/core'
 import { Inbox, ChevronRight, KeyboardArrowDown, Add, PersonAdd, RemoveCircle } from '@material-ui/icons'
 import { theme } from 'providers/theme'
 import Divider from 'components/common/Divider'
@@ -16,9 +13,11 @@ import ListItemIcon from './ListItemIcon'
 import ListSubheader from './ListSubheader'
 import ListItemSecondaryAction from './ListItemSecondaryAction'
 import ListItemAvatar from './ListItemAvatar'
+import ListItemText from './ListItemText'
 import Badge from '../Badge'
 import NoDisturbIcon from '../Badge/NoDisturbIcon'
 import IdleIcon from '../Badge/IdleIcon'
+import OfflineIcon from '../Badge/OfflineIcon'
 
 export default {
   title: 'Components/List',
@@ -164,17 +163,14 @@ export const UserList: React.VFC<{}> = () => {
   return (
     <Container maxWidth='xs'>
       <List
-        style={{
-          color: '#72767d',
-          background: theme.palette.background.tertiary,
-          paddingRight: 8,
-        }}
+        style={{ paddingRight: 8 }}
         subheader={
-          <ListSubheader
-            component='div'
-          >
-            ADMIN
-          </ListSubheader>
+          <>
+            <ListSubheader component='div'>
+              ADMIN
+            </ListSubheader>
+            <Divider />
+          </>
         }
       >
         <ListItem button>
@@ -192,8 +188,12 @@ export const UserList: React.VFC<{}> = () => {
               />
             </Badge>
           </ListItemAvatar>
-          <ListItemText primary='Hatsune Miku' />
+          <ListItemText
+            primary='Hatsune Miku'
+            secondary='Online'
+          />
         </ListItem>
+        <Divider />
 
         <ListItem button>
           <ListItemAvatar>
@@ -209,8 +209,12 @@ export const UserList: React.VFC<{}> = () => {
               />
             </Badge>
           </ListItemAvatar>
-          <ListItemText primary='Hatsune Miku' />
+          <ListItemText
+            primary='Hatsune Miku'
+            secondary='Playing Dota2'
+          />
         </ListItem>
+        <Divider />
 
         <ListItem button>
           <ListItemAvatar>
@@ -226,7 +230,31 @@ export const UserList: React.VFC<{}> = () => {
               />
             </Badge>
           </ListItemAvatar>
-          <ListItemText primary='Hatsune Miku' />
+          <ListItemText
+            primary='Hatsune Miku'
+            secondary='Sleeping'
+          />
+        </ListItem>
+        <Divider />
+
+        <ListItem button>
+          <ListItemAvatar>
+            <Badge
+              size={20}
+              badgeContent={<OfflineIcon style={{ width: 16 }} />}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            >
+              <Avatar
+                style={{ width: 32, height: 32 }}
+                alt='Hatsune Miku'
+                src='https://pbs.twimg.com/profile_images/1326706754164383744/cHB7eqaI.jpg'
+              />
+            </Badge>
+          </ListItemAvatar>
+          <ListItemText
+            primary='Hatsune Miku'
+            secondary='Offline'
+          />
         </ListItem>
       </List>
     </Container>
