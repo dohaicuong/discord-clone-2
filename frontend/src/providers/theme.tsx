@@ -10,6 +10,14 @@ declare module "@material-ui/core/styles/createPalette" {
       primary?: string
     },
     default: SimplePaletteColorOptions
+    scrollbar: {
+      thinThumb: string,
+      thinTrack: string,
+      autoThumb: string,
+      autoTrack: string,
+      autoScrollbarColorThumb: string,
+      autoScrollbarColorTrack: string,
+    }
   }
   interface PaletteOptions {
     header: {
@@ -20,6 +28,14 @@ declare module "@material-ui/core/styles/createPalette" {
       primary?: string
     },
     default: SimplePaletteColorOptions
+    scrollbar: {
+      thinThumb: string,
+      thinTrack: string,
+      autoThumb: string,
+      autoTrack: string,
+      autoScrollbarColorThumb: string,
+      autoScrollbarColorTrack: string,
+    }
   }
 
   interface PaletteColor {
@@ -131,7 +147,15 @@ export const theme = createTheme({
       modifierActive: 'rgba(79, 84, 92, 0.24)',
       modifierSelected: 'rgba(79, 84, 92, 0.32)',
       modifierAccent: 'hsla(0, 0%, 100%, 0.06)',
-    }
+    },
+    scrollbar: {
+      thinThumb: '#202225',
+      thinTrack: 'transparent',
+      autoThumb: '#202225',
+      autoTrack: 'hsl(210, 9.8%, 20%)',
+      autoScrollbarColorThumb: '#202225',
+      autoScrollbarColorTrack: '#2f3136',
+    },
   },
   shape: { borderRadius: 3 },
   typography: {

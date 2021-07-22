@@ -25,20 +25,16 @@ export const Primary: React.VFC<{}> = () => (
         >
           <BlobButton />
         </Badge>
-      </div>
-      <div>
         <Badge
-          badgeContent={2} color='primary'
-          anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+          badgeContent={2} color='secondary'
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
           style={{ margin: 4 }}
         >
           <BlobButton />
         </Badge>
-      </div>
-      <div>
         <Badge
-          badgeContent={2} color='secondary'
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+          badgeContent={2} color='primary'
+          anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
           style={{ margin: 4 }}
         >
           <BlobButton />
