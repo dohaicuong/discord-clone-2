@@ -1,20 +1,21 @@
-import { Container, Switch } from '@material-ui/core'
 import { Meta } from '@storybook/react'
 
 import {
-  List,
-  ListSubheader,
-  ListItemIcon,
   ListItemText,
-  ListItemSecondaryAction,
   ListItemAvatar,
-  Avatar,
+  Avatar, Collapse, Container, Switch
 } from '@material-ui/core'
-import { Inbox } from '@material-ui/icons'
+import { Inbox, ChevronRight, KeyboardArrowDown, Add, PersonAdd } from '@material-ui/icons'
 import { theme } from 'providers/theme'
 import Divider from 'components/common/Divider'
 import BlobButton from 'components/common/BlobButton'
+
+import List from './List'
 import ListItem from './ListItem'
+import ListItemIcon from './ListItemIcon'
+import ListSubheader from './ListSubheader'
+import ListItemSecondaryAction from './ListItemSecondaryAction'
+import { useState } from 'react'
 
 export default {
   title: 'Components/List',
@@ -100,22 +101,59 @@ export const BlobList: React.VFC<{}> = () => (
 // icon, avatar spacing ???
 // size ???
 export const CollapsibleList: React.VFC<{}> = () => {
+  const [open, setOpen] = useState(true)
+
   return (
     <Container maxWidth='xs'>
       <List
-        style={{ color: '#72767d', background: theme.palette.background.tertiary, paddingRight: 8 }}
+        style={{
+          color: '#72767d',
+          background: theme.palette.background.tertiary,
+          paddingRight: 8,
+        }}
         subheader={
-          <ListSubheader component='div'>
+          <ListSubheader
+            component='div'
+            style={{ display: 'flex', alignItems: 'center' }}
+            onClick={() => setOpen(pre => !pre)}
+          >
+            {open
+              ? <KeyboardArrowDown style={{ width: 18, height: 18 }} />
+              : <ChevronRight style={{ width: 18, height: 18 }} />
+            }
             Trò Chuyện Linh Tinh
+            <div style={{ flexGrow: 1 }} />
+            <ListItemSecondaryAction onClick={e => e.stopPropagation()}>
+              <Add />
+            </ListItemSecondaryAction>
           </ListSubheader>
         }
       >
-        <ListItem button dense>
-          <ListItemIcon>
-            <Inbox />
-          </ListItemIcon>
-          <ListItemText primary='general' />
-        </ListItem>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <ListItem button dense selected style={{ marginBottom: 4, marginLeft: 4 }}>
+            <ListItemIcon>
+              <Inbox />
+            </ListItemIcon>
+            <ListItemText primary='general' />
+            <ListItemSecondaryAction onClick={e => e.stopPropagation()}>
+              <PersonAdd style={{ width: 16, height: 16 }} />
+            </ListItemSecondaryAction>
+          </ListItem>
+          
+          <ListItem button dense style={{ marginBottom: 4, marginLeft: 4 }}>
+            <ListItemIcon>
+              <Inbox />
+            </ListItemIcon>
+            <ListItemText primary='opportunites' />
+          </ListItem>
+
+          <ListItem button dense style={{ marginBottom: 4, marginLeft: 4 }}>
+            <ListItemIcon>
+              <Inbox />
+            </ListItemIcon>
+            <ListItemText primary='news' />
+          </ListItem>
+        </Collapse>
       </List>
     </Container>
   )

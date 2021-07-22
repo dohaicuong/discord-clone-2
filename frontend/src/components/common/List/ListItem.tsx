@@ -16,18 +16,17 @@ type ListItemProps = Omit<MuiListItemProps, 'divider'> & {
 
 const ListItem: ComponentType<ListItemProps> = withStyles(theme => ({
   root: {
-    paddingLeft: ({ blob }: any) => blob ? 0 : 16,
-    paddingRight: ({ blob }: any) => blob ? 0 : 16,
+    paddingLeft: ({ blob }: any) => blob ? 0 : 8,
+    paddingRight: ({ blob }: any) => blob ? 0 : 8,
     justifyContent: 'center',
-    // '& MuiTouchRipple-root': {
-    //   display: 'none',
-    // }
+    color: theme.palette.text.channelDefault,
   },
   button: {
     '&:hover': {
       background: theme.palette.background.modifierHover,
       borderRadius: 8,
       borderColor: 'transparent',
+      color: theme.palette.text.interactiveHover,
     }
   },
   selected: {
@@ -35,6 +34,10 @@ const ListItem: ComponentType<ListItemProps> = withStyles(theme => ({
     backgroundColor: `${theme.palette.background.modifierSelected} !important`,
     borderRadius: 8,
     borderColor: 'transparent',
+  },
+  dense: {
+    paddingTop: 2,
+    paddingBottom: 2,
   },
 
   wrapper: {

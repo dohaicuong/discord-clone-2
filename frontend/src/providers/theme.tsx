@@ -42,6 +42,11 @@ declare module "@material-ui/core/styles/createPalette" {
     warning?: string
     danger?: string
     channelDefault?: string
+
+    interactiveNormal?: string
+    interactiveHover?: string
+    interactiveActive?: string
+    interactiveMuted?: string
   }
 
   interface TypeBackground {
@@ -102,7 +107,12 @@ export const theme = createTheme({
       positive: 'hsl(139, 66.8%, 58.6%)',
       warning: 'hsl(38, 95.7%, 54.1%)',
       danger: 'hsl(359, 82.6%, 59.4%)',
-      channelDefault: '#8e9297'
+      channelDefault: '#8e9297',
+
+      interactiveNormal: '#b9bbbe',
+      interactiveHover: '#dcddde',
+      interactiveActive: '#fff',
+      interactiveMuted: '#4f545c',
     },
     background: {
       primary: '#36393f',
