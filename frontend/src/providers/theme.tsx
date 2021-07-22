@@ -91,6 +91,9 @@ export const theme = createTheme({
       active: 'hsl(359, 56.3%, 40.4%)',
       outlineActive: 'hsla(359, 82.6%, 59.4%, .1)'
     },
+    success: {
+      main: '#3aa65c',
+    },
 
     header: {
       primary: '#fff',

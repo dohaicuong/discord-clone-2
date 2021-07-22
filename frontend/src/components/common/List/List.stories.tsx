@@ -5,7 +5,7 @@ import {
   ListItemText,
   Avatar, Collapse, Container, Switch
 } from '@material-ui/core'
-import { Inbox, ChevronRight, KeyboardArrowDown, Add, PersonAdd } from '@material-ui/icons'
+import { Inbox, ChevronRight, KeyboardArrowDown, Add, PersonAdd, RemoveCircle } from '@material-ui/icons'
 import { theme } from 'providers/theme'
 import Divider from 'components/common/Divider'
 import BlobButton from 'components/common/BlobButton'
@@ -17,6 +17,8 @@ import ListSubheader from './ListSubheader'
 import ListItemSecondaryAction from './ListItemSecondaryAction'
 import ListItemAvatar from './ListItemAvatar'
 import Badge from '../Badge'
+import NoDisturbIcon from '../Badge/NoDisturbIcon'
+import IdleIcon from '../Badge/IdleIcon'
 
 export default {
   title: 'Components/List',
@@ -178,7 +180,7 @@ export const UserList: React.VFC<{}> = () => {
         <ListItem button>
           <ListItemAvatar>
             <Badge
-              color='error'
+              color='success'
               badgeContent=''
               size={20}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -196,9 +198,25 @@ export const UserList: React.VFC<{}> = () => {
         <ListItem button>
           <ListItemAvatar>
             <Badge
-              color='error'
-              badgeContent=''
               size={20}
+              badgeContent={<NoDisturbIcon style={{ width: 16 }} />}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            >
+              <Avatar
+                style={{ width: 32, height: 32 }}
+                alt='Hatsune Miku'
+                src='https://pbs.twimg.com/profile_images/1326706754164383744/cHB7eqaI.jpg'
+              />
+            </Badge>
+          </ListItemAvatar>
+          <ListItemText primary='Hatsune Miku' />
+        </ListItem>
+
+        <ListItem button>
+          <ListItemAvatar>
+            <Badge
+              size={20}
+              badgeContent={<IdleIcon style={{ width: 16 }} />}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
               <Avatar
