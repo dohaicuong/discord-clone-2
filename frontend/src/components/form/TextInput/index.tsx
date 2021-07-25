@@ -2,13 +2,13 @@ import { FormControl, InputBaseProps, TextFieldProps } from '@material-ui/core'
 import InputLabel from './InputLabel'
 import InputBase from './InputBase'
 
-type InputTextFieldProps = InputBaseProps & {
+export type TextInputProps = InputBaseProps & {
   name: string
   label?: string
   helperText?: React.ReactNode
 }
 
-const TextInput: React.FC<InputTextFieldProps> = ({ 
+const TextInput: React.FC<TextInputProps> = ({ 
   label,
   error,
   helperText,

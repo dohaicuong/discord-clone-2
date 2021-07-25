@@ -39,18 +39,8 @@ export const Primary: React.VFC<{}> = () => (
         >
           <BlobButton />
         </Badge>
-      </div>
-      <div>
         <Badge
           badgeContent={2} color='error'
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-          style={{ margin: 4 }}
-        >
-          <BlobButton />
-        </Badge>
-
-        <Badge
-          badgeContent={2} color='success'
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
           style={{ margin: 4 }}
         >
